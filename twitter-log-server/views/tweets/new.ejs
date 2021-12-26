@@ -1,5 +1,4 @@
 <%- include('../partials/header') %>
-    <h2>Log A New Tweet:</h2>
     <form action="/tweets" method="POST">
         <label>What's on your mind?</label>
         <input type="text" id="fname" name="tweet"><br><br>
@@ -15,5 +14,8 @@
 
         <label>Hashtag</label>
         <input type="text" id="fname" name="hashtag"><br><br>
+
+        <input type="submit" value="Log Tweet">
+
     </form>
     <%- include('../partials/footer') %>

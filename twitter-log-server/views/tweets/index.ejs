@@ -1,0 +1,39 @@
+<%- include('../partials/header') %>
+    <table>
+        <thead>
+            <tr>
+                <th>Tweet</th>
+                <th>Creater At</th>
+                <th>Author</th>
+                <th>Bio</th>
+                <th>Hashtag</th>
+                <th>Emotion</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% tweets.forEach(function(t) { %>
+                <tr>
+                    <td>
+                        <%= t.tweet %>
+                    </td>
+                    <td>
+                        <%= t.createdAt %>
+                    </td>
+                    <td>
+                        <%= t.author %>
+                    </td>
+                    <td>
+                        <%= t.bio%>
+                    </td>
+                    <td>
+                        <%= t.hashtag%>
+                    </td>
+                    <td>
+                        <%= t.emotion%>
+                    </td>
+                    <td><a href="/tweets/<%= t._id %>">EDIT TWEET</a></td>
+                </tr>
+                <% }); %>
+        </tbody>
+    </table>
+    <%- include('../partials/footer') %>
