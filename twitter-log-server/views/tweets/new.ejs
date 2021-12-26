@@ -1,0 +1,19 @@
+<%- include('../partials/header') %>
+    <h2>Log A New Tweet:</h2>
+    <form action="/tweets" method="POST">
+        <label>What's on your mind?</label>
+        <input type="text" id="fname" name="tweet"><br><br>
+
+        <label>Time:</label>
+        <input type="datetime-local" name="createdAt" value="2021-06-12T19:30" min="2021-06-07T00:00"><br><br>
+
+        <label>Author</label>
+        <input type="text" id="fname" name="author"><br><br>
+
+        <label>Bio:</label>
+        <input type="text" id="fname" name="bio"><br><br>
+
+        <label>Hashtag</label>
+        <input type="text" id="fname" name="hashtag"><br><br>
+    </form>
+    <%- include('../partials/footer') %>
