@@ -2,4 +2,10 @@
 
   <p>Welcome to <%= title %>
   </p>
-  <%- include('partials/footer') %>
+  <form action="/" method="GET">
+    <label>Search any hastag, starting with #</label>
+    <input type="text" id="fname" name="hashtag"><br><br>
+    <label>How many tweets?</label>
+    <input type="number" name="count" min="0"><br><br>
+    <input type="submit" value="Search Tweet">
+    <%- include('partials/footer') %>
