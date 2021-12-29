@@ -6,7 +6,7 @@ function index(req, res, next) {
         Users,
         user: req.user,
         name: req.query.name,
-        title: 'Login',
+        title: 'LOGIN'
     });
 }
 

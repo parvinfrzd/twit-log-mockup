@@ -1,46 +1,57 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const express = require('express');
+const path = require('path');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const session = require('express-session');
+const passport = require('passport');
+require('dotenv').config();
+
+// create the Express app
+const app = express();
+
+// connect to the MongoDB with mongoose
 require('./config/database');
+// initialize PassportJS
+require('./config/passport');
 
-var indexRouter = require('./routes/index');
-var tweetsRouter = require('./routes/tweets');
-var infoRouter = require('./routes/info');
-var loginRouter = require('./routes/login');
-
-var app = express();
+// require our routes
+const indexRoutes = require('./routes/index');
+const loginRoutes = require('./routes/login');
+const tweetRoutes = require('./routes/tweets');
+const searchRoutes = require('./routes/tweets');
+const infoRoutes = require('./routes/info');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(
+  session({
+    secret: process.env.SECRET_SESSION,
+    resave: false,
+    saveUninitialized: true,
+  })
+);
 
-app.use('/', indexRouter);
-app.use('/tweets', tweetsRouter);
-app.use('/info', infoRouter);
-app.use('/login', loginRouter);
+// Passport mounted to express
+app.use(passport.initialize());
+app.use(passport.session());
 
-// catch 404 and forward to error handler
-app.use(function (req, res, next) {
-  next(createError(404));
-});
+// mount all routes with appropriate base paths
+app.use('/', indexRoutes);
+app.use('/', loginRoutes);
+app.use('/tweets', tweetRoutes);
+app.use('/', infoRoutes);
+app.use('/', searchRoutes);
 
-// error handler
-app.use(function (err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+// invalid request, send 404 page
+app.use(function (req, res) {
+  res.status(404).send('Cant find that!');
 });
 
 module.exports = app;

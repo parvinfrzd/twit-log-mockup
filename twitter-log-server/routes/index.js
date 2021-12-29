@@ -6,7 +6,7 @@ const Users = require('../models/user');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  res.redirect('/info');
+  res.redirect('/login');
 });
 
 router.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
