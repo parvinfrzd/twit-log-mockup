@@ -18,7 +18,7 @@ require('./config/passport');
 const indexRoutes = require('./routes/index');
 const loginRoutes = require('./routes/login');
 const tweetRoutes = require('./routes/tweets');
-const searchRoutes = require('./routes/tweets');
+const searchRoutes = require('./routes/search');
 const infoRoutes = require('./routes/info');
 
 // view engine setup
