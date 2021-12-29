@@ -13,11 +13,15 @@
 
 <body>
     <nav>
-        <a href="/tweets/new">ADD TWEET</a>
-        <a href="/tweets">ALL TWEETS</a>
-        <a href="/info">INFO</a>
-        <a href="/login">LOGIN</a>
-        <a href="/">HOME PAGE</a>
+        <% if (user) { %>
+            <a href="/logout">Log Out</a>
+            <a href="/tweets/new">ADD TWEET</a>
+            <a href="/tweets">ALL TWEETS</a>
+            <% } else { %>
+                <a href="/auth/google">Login with Google</a>
+                <a href="/info">INFO</a>
+                <% } %>
+
 
     </nav>
     <main>

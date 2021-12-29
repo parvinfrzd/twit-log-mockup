@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Tweets = require('../models/tweet');
+var Users = require('../models/user')
 
 /* GET users listing. */
 router.get('/new', function addTweet(req, res) {
@@ -9,7 +10,13 @@ router.get('/new', function addTweet(req, res) {
 
 router.get('/', function showTweet(req, res) {
   Tweets.find({}, function (err, tweets) {
-    res.render('tweets/index', { title: 'All Tweets', tweets })
+    res.render('tweets/index', {
+      title: 'All Tweets',
+      tweets,
+      Users,
+      user: req.user,
+      name: req.query.name,
+    })
   })
 });
 
