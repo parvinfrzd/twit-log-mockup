@@ -9,4 +9,17 @@
         <label>How many tweets?</label>
         <input type="number" name="count" min="0"><br><br>
         <input type="submit" value="Search Tweet">
-        <%- include('../partials/footer') %>
+    </form>
+
+    <%if (tweets) { %>
+        <%tweets.forEach(t=> { %>
+            <h3 class="text-center text-info">
+                <%=t%>
+            </h3>
+            <%})%>
+                <% } else { %>
+                    <h3 class="text-center text-info">
+                        results are not in
+                    </h3>
+                    <%}%>
+                        <%- include('../partials/footer') %>
