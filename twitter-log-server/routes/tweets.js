@@ -5,7 +5,12 @@ var Users = require('../models/user')
 
 /* GET users listing. */
 router.get('/new', function addTweet(req, res) {
-  res.render('tweets/new', { title: 'Add New Tweet' })
+  res.render('tweets/new', {
+    title: 'Add New Tweet',
+    Users,
+    user: req.user,
+    name: req.query.name,
+  })
 });
 
 router.get('/', function showTweet(req, res) {
