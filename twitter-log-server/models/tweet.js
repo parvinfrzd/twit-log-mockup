@@ -1,13 +1,11 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-const emotionSchema = new Schema({
-    emotion: {
+const reviewSchema = new Schema({
+    review: {
         type: String,
-        enum: ['joy', 'sadness', 'disgust', 'fear', 'anger', 'neutral'],
-        default: 'neutral'
     },
-    note: {
+    username: {
         type: String,
     }
 });
@@ -31,7 +29,11 @@ const tweetSchema = new Schema({
         type: String,
         required: true,
     },
-    emotions: [emotionSchema],
+    emotions: {
+        type: String,
+        enum: ['joy', 'sadness', 'disgust', 'fear', 'anger', 'neutral'],
+        default: 'neutral'
+    },
 },
     {
         timestamps: true
