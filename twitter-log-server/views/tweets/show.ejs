@@ -31,7 +31,7 @@
     <label>Review:</label>
     <textarea name="content"></textarea>
     <label>Intensity:</label>
-    <select name="rating">
+    <select name="intensity">
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -52,15 +52,12 @@
             <tr>
                 <th>Date</th>
                 <th>Review</th>
-                <th>Rating</th>
+                <th>Intensity</th>
             </tr>
         </thead>
         <tbody>
             <% movie.reviews.forEach(function(r) { %>
                 <tr>
-                    <td>
-                        <%= r.createdAt.toLocaleDateString() %>
-                    </td>
                     <td>
                         <%= r.content %>
                     </td>

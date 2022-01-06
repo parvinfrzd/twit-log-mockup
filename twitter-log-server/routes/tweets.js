@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Tweets = require('../models/tweet');
-var Users = require('../models/user')
+var Users = require('../models/user');
 
 /* GET users listing. */
 router.get('/new', function addTweet(req, res) {
@@ -30,7 +30,7 @@ router.get('/:id', function show(req, res) {
     .populate('tweets').exec(function (err, tweet) {
       console.log(tweet);
       res.render('tweets/show', {
-        title: 'Flight Detail', tweet
+        title: 'Tweet Detail', tweet
       });
     });
 });
