@@ -21,6 +21,7 @@ const tweetRoutes = require('./routes/tweets');
 const searchRoutes = require('./routes/search');
 const reviewsRouter = require('./routes/reviews');
 const infoRoutes = require('./routes/info');
+const myCollectionRouter = require('./routes/userCollection');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -50,6 +51,7 @@ app.use('/tweets', tweetRoutes);
 app.use('/', infoRoutes);
 app.use('/', searchRoutes);
 app.use('/', reviewsRouter);
+app.use('/', myCollectionRouter);
 
 // invalid request, send 404 page
 app.use(function (req, res) {
