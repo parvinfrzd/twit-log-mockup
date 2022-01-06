@@ -19,6 +19,7 @@ const indexRoutes = require('./routes/index');
 const loginRoutes = require('./routes/login');
 const tweetRoutes = require('./routes/tweets');
 const searchRoutes = require('./routes/search');
+const reviewsRouter = require('./routes/reviews');
 const infoRoutes = require('./routes/info');
 
 // view engine setup
@@ -48,6 +49,7 @@ app.use('/', loginRoutes);
 app.use('/tweets', tweetRoutes);
 app.use('/', infoRoutes);
 app.use('/', searchRoutes);
+app.use('/', reviewsRouter);
 
 // invalid request, send 404 page
 app.use(function (req, res) {

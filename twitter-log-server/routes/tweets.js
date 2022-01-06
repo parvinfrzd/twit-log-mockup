@@ -25,6 +25,16 @@ router.get('/', function showTweet(req, res) {
   })
 });
 
+router.get('/:id', function show(req, res) {
+  Tweets.findById(req.params.id)
+    .populate('tweets').exec(function (err, tweet) {
+      console.log(tweet);
+      res.render('tweets/show', {
+        title: 'Flight Detail', tweet
+      });
+    });
+});
+
 router.post('/', function createTweet(req, res) {
   req.body.nowShowing = !!req.body.nowShowing;
 

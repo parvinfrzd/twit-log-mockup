@@ -2,13 +2,12 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 const reviewSchema = new Schema({
-    review: {
-        type: String,
-    },
-    username: {
-        type: String,
-    }
+    content: String,
+    intensity: { type: Number, min: 0, max: 10, default: 10 }
+}, {
+    timestamps: true
 });
+
 
 const tweetSchema = new Schema({
     tweet: {
@@ -34,6 +33,7 @@ const tweetSchema = new Schema({
         enum: ['joy', 'sadness', 'disgust', 'fear', 'anger', 'neutral'],
         default: 'neutral'
     },
+    reviews: [reviewSchema],
 },
     {
         timestamps: true
