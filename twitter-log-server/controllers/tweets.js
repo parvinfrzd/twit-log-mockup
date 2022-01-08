@@ -48,26 +48,26 @@ function createTweet(req, res) {
     });
 }
 
-function update(req, res) {
+async function update(req, res) {
     res.render('tweets/edit', {
         title: 'Edit Tweet',
-        tweet: Tweets.findById(req.params.id),
+        tweet: await Tweets.findById(req.params.id),
         Users,
         user: req.user,
         name: req.query.name,
     });
 }
 
-function editTweet(req, res) {
+async function editTweet(req, res) {
     req.body.done = !!req.body.done;
-    console.log(req.params.id);
-    Tweets.findOneAndUpdate({ _id: req.params.id }, { $set: req.body });
-    res.redirect('/');
+    console.log('the id : ', req.params.id);
+    await Tweets.findOneAndUpdate({ _id: req.params.id }, req.body);
+    res.redirect('/tweets');
 }
 
-function deleteTweet(req, res, next) {
-    Tweets.deleteOne({ _id: req.params.id });
-    res.redirect('/');
+async function deleteTweet(req, res, next) {
+    await Tweets.deleteOne({ _id: req.params.id });
+    res.redirect('/tweets');
 }
 
 

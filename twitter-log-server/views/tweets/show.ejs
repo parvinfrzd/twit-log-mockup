@@ -1,73 +1,78 @@
-<section id="show-page">
-    <div>Tweet: </div>
-    <div>
-        <%= tweet.tweet %>
-    </div>
-    <div>Time posted: </div>
-    <div>
-        <%= tweet.createdAt %>
-    </div>
-    <div>Username: </div>
-    <div>
-        <%= tweet.author %>
-    </div>
-    <div>User Bio: </div>
-    <div>
-        <%= tweet.bio %>
-    </div>
-    <div>Hashtag: </div>
-    <div>
-        <%= tweet.hashtag %>
-    </div>
-    <div>Emotion: </div>
-    <div>
-        <%= tweet.emotion %>
-    </div>
-</section>
+<%- include('../partials/header') %>
+    <section id="show-page">
+        <div>Tweet: </div>
+        <div>
+            <%= tweet.text %>
+        </div>
+        <div>Time posted: </div>
+        <div>
+            <%= tweet.createdAt %>
+        </div>
+        <div>Username: </div>
+        <div>
+            <%= tweet.author %>
+        </div>
+        <div>User Bio: </div>
+        <div>
+            <%= tweet.bio %>
+        </div>
+        <div>Hashtag: </div>
+        <div>
+            <%= tweet.hashtag %>
+        </div>
+        <div>Emotion: </div>
+        <div>
+            <%= tweet.emotion %>
+        </div>
+    </section>
 
-<br><br>
-<h2>Reviews</h2>
-<form id="add-review-form" method="POST" action="/tweets/<%= tweet._id %>/reviews">
-    <label>Review:</label>
-    <textarea name="content"></textarea>
-    <label>Intensity:</label>
-    <select name="intensity">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-    </select>
-    <input type="submit" value="Add Review">
-</form>
+    <br><br>
+    <h2>Reviews</h2>
+    <form id="add-review-form" method="POST" action="/tweets/<%= tweet._id %>/reviews">
+        <label>Review:</label>
+        <textarea name="content"></textarea>
+        <label>Intensity:</label>
+        <select name="intensity">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+        <input type="submit" value="Add Review">
+    </form>
 
-<% if (tweet.reviews.length) { %>
-    <table>
-        <thead>
-            <tr>
-                <th>Date</th>
-                <th>Review</th>
-                <th>Intensity</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% movie.reviews.forEach(function(r) { %>
+    <% if (tweet.reviews.length) { %>
+        <table>
+            <thead>
                 <tr>
-                    <td>
-                        <%= r.content %>
-                    </td>
-                    <td>
-                        <%= r.intensity %>
-                    </td>
+                    <th>Date</th>
+                    <th>Review</th>
+                    <th>Intensity</th>
                 </tr>
-                <% }); %>
-        </tbody>
-    </table>
-    <% } else { %>
-        <h5>No Reviews Yet</h5>
-        <% } %>
+            </thead>
+            <tbody>
+                <% movie.reviews.forEach(function(r) { %>
+                    <tr>
+                        <td>
+                            <%= r.content %>
+                        </td>
+                        <td>
+                            <%= r.intensity %>
+                        </td>
+                    </tr>
+                    <% }); %>
+            </tbody>
+        </table>
+        <% } else { %>
+            <h5>No Reviews Yet</h5>
+            <% } %>
+
+                <a href="/tweets/<%= tweet.id %>/edit">Edit Tweet</a>
+
+                <%- include('../partials/footer') %>

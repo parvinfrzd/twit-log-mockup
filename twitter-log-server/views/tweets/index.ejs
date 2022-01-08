@@ -2,7 +2,7 @@
     <table>
         <thead>
             <tr>
-                <th>Tweet</th>
+                <th>Text</th>
                 <th>Creater At</th>
                 <th>Author</th>
                 <th>Bio</th>
@@ -13,6 +13,11 @@
         <tbody>
             <% tweets.forEach(function(t) { %>
                 <tr>
+                    <td>
+                        <form action="/tweets/<%= t.id %>?_method=DELETE" class="delete-form" method="POST">
+                            <button type="submit">X</button>
+                        </form>
+                    </td>
                     <td>
                         <%= t.tweet %>
                     </td>
@@ -37,5 +42,7 @@
         </tbody>
     </table>
 
-    <input type="submit" value="DELETE COLLECTION">
+    <form action="/tweets/?_method=DELETE" class="delete-form" method="POST">
+        <button type="submit">DELETE ALL TWEETS</button>
+    </form>
     <%- include('../partials/footer') %>

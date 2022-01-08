@@ -1,0 +1,12 @@
+<%- include('../partials/header') %>
+    <form action="/tweets/<%= tweet.id %>?_method=PUT" method="POST" autocomplete="off">
+        <label>What's on your mind?</label>
+        <input type="text" name="tweet" value="<%= tweet.tweet %>"><br><br>
+        <label>What do you think the hashtag should be?</label>
+        <input type="text" name="hashtag" value="<%= tweet.hashtag %>"><br><br>
+        <label>How does this really make you feel?</label>
+        <input type="text" name="emotion" value="<%= tweet.emotion %>"><br><br>
+        <button type="submit">Save Tweet</button>
+    </form>
+
+    <%- include('../partials/footer') %>
