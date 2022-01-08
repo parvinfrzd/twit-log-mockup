@@ -40,13 +40,23 @@ async function searchTwitter(req, res) {
         });
 }
 
-function searchTrends(req, res) {
-    res.render('search/trend',
+let result = [];
+async function searchTrends(req, res) {
+    const _id = req.query.woeid;
+    if (_id) {
+        await client.get('trends/place', { id: 1 }, function (err, data, response) {
+            result = data[0].trends;
+            res.redirect('/trends');
+        });
+    }
+
+    res.render('search/trends',
         {
             Users,
             user: req.user,
             name: req.query.name,
             title: 'Find Twitter Trends',
+            result,
         });
 }
 
