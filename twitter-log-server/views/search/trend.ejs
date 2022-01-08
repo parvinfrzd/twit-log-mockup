@@ -1,0 +1,21 @@
+<%- include('../partials/header') %>
+
+    <form action="/trend" method="GET">
+        <label>Search trending tweet within these locations</label>
+        <select class="form-select" aria-label="Default select example">
+            <option selected>Open this select menu</option>
+            <option value="2459115">NewYork</option>
+            <option value="2442047">Los Angeles</option>
+            <option value="4118">Toronto</option>
+            <option value="1105779">Sydney</option>
+            <option value="44418">London</option>
+            <option value="2295019">New Delhi</option>
+            <option value="638243">Berlin</option>
+            <option value="766273">Madrid</option>
+            <option value="721943">Rome</option>
+            <option value="615702">Paris</option>
+
+        </select><br><br>
+        <button class="btn btn-primary" type="submit">Search Trend</button>
+    </form>
+    <%- include('../partials/footer') %>

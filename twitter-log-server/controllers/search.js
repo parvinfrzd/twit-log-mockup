@@ -40,6 +40,17 @@ async function searchTwitter(req, res) {
         });
 }
 
+function searchTrends(req, res) {
+    res.render('search/trend',
+        {
+            Users,
+            user: req.user,
+            name: req.query.name,
+            title: 'Find Twitter Trends',
+        });
+}
+
 module.exports = {
     search: searchTwitter,
+    searchTrends,
 }
