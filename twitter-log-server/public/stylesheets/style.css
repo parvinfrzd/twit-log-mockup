@@ -6,3 +6,28 @@ body {
 a {
   color: #00B7FF;
 }
+
+.selector-for-some-widget {
+  box-sizing: content-box;
+}
+
+.lead {
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.flex-column {
+  -webkit-box-orient: vertical!important;
+  -webkit-box-direction: normal!important;
+  -ms-flex-direction: column!important;
+  flex-direction: column!important;
+}
+
+.text-center {
+  text-align: center!important;
+}

@@ -1,48 +1,49 @@
 <%- include('../partials/header') %>
-    <table>
+    <table class="table">
         <thead>
             <tr>
-                <th>Text</th>
-                <th>Creater At</th>
-                <th>Author</th>
-                <th>Bio</th>
-                <th>Hashtag</th>
-                <th>Emotion</th>
+                <th scope="col"></th>
+                <th scope="col">Text</th>
+                <th scope="col">Creater At</th>
+                <th scope="col">Author</th>
+                <th scope="col">Bio</th>
+                <th scope="col">Hashtag</th>
+                <th scope="col">Emotion</th>
             </tr>
         </thead>
         <tbody>
             <% tweets.forEach(function(t) { %>
                 <tr>
-                    <td>
+                    <td scope="row">
                         <form action="/tweets/<%= t.id %>?_method=DELETE" class="delete-form" method="POST">
-                            <button type="submit">X</button>
+                            <button type="submit" class="btn btn-danger">X</button>
                         </form>
                     </td>
-                    <td>
+                    <td scope="row">
                         <%= t.tweet %>
                     </td>
-                    <td>
+                    <td scope="row">
                         <%= t.createdAt %>
                     </td>
-                    <td>
+                    <td scope="row">
                         <%= t.author %>
                     </td>
-                    <td>
+                    <td scope="row">
                         <%= t.bio%>
                     </td>
-                    <td>
+                    <td scope="row">
                         <%= t.hashtag%>
                     </td>
-                    <td>
+                    <td scope="row">
                         <%= t.emotion%>
                     </td>
-                    <td><a href="/tweets/<%= t._id %>">Details</a></td>
+                    <td scope="row"><a href="/tweets/<%= t._id %>" class="btn btn-info">Details</a></td>
                 </tr>
                 <% }); %>
         </tbody>
     </table>
 
     <form action="/tweets/?_method=DELETE" class="delete-form" method="POST">
-        <button type="submit">DELETE ALL TWEETS</button>
+        <button type="submit" class="btn btn-danger">DELETE ALL TWEETS</button>
     </form>
     <%- include('../partials/footer') %>

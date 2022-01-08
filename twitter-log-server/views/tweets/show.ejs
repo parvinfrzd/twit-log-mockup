@@ -1,5 +1,5 @@
 <%- include('../partials/header') %>
-    <section id="show-page">
+    <section id="show-page" class="p-3 mb-2 bg-info text-dark">
         <div>Tweet: </div>
         <div>
             <%= tweet.text %>
@@ -24,28 +24,10 @@
         <div>
             <%= tweet.emotion %>
         </div>
-    </section>
+    </section><br><br>
 
-    <br><br>
-    <h2>Reviews</h2>
-    <form id="add-review-form" method="POST" action="/tweets/<%= tweet._id %>/reviews">
-        <label>Review:</label>
-        <textarea name="content"></textarea>
-        <label>Intensity:</label>
-        <select name="intensity">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-        </select>
-        <input type="submit" value="Add Review">
-    </form>
+    <a href="/tweets/<%= tweet.id %>/edit" class="btn btn-info">Edit Tweet</a><br><br><br><br>
+
 
     <% if (tweet.reviews.length) { %>
         <table>
@@ -57,7 +39,7 @@
                 </tr>
             </thead>
             <tbody>
-                <% movie.reviews.forEach(function(r) { %>
+                <% tweet.reviews.forEach(function(r) { %>
                     <tr>
                         <td>
                             <%= r.content %>
@@ -70,9 +52,30 @@
             </tbody>
         </table>
         <% } else { %>
-            <h5>No Reviews Yet</h5>
-            <% } %>
+            <h5>No Comments Yet</h5>
+            <% } %><br><br><br><br>
 
-                <a href="/tweets/<%= tweet.id %>/edit">Edit Tweet</a>
+
+                <h2>Comments</h2>
+                <form id="add-review-form" method="POST" action="/tweets/<%= tweet._id %>/reviews"
+                    class="p-3 mb-2 bg-light text-dark">
+                    <label>Comment:</label>
+                    <textarea name="content" class="form-control"></textarea><br>
+                    <label>Intensity:</label>
+                    <select name="intensity" multiple class="form-control">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select><br><br>
+                    <input type="submit" value="Add Review" class="btn btn-info">
+                </form>
+
 
                 <%- include('../partials/footer') %>
