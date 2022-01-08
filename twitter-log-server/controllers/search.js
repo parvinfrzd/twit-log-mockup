@@ -9,7 +9,7 @@ var client = new Twit({
     access_token_secret: process.env.ACCESS_TOKEN_SECRET,
 });
 
-async function search(req, res, next) {
+async function searchTwitter(req, res) {
     if (req.query.hashtag && req.query.count) {
         await client.get('search/tweets', { q: `#${req.query.hashtag} since:2020-04-15`, count: req.query.count }, function (err, data, response) {
             var result = data.statuses
@@ -41,5 +41,5 @@ async function search(req, res, next) {
 }
 
 module.exports = {
-    search,
+    search: searchTwitter,
 }
