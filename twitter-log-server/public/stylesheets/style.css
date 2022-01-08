@@ -31,3 +31,15 @@ p {
 .text-center {
   text-align: center!important;
 }
+
+.container {
+  /* height: 50%; */
+  width: auto;
+  height: auto;
+  flex-wrap: wrap ;
+  justify-content: center;
+  align-items: baseline;
+  align-content: center;
+  gap: 10px 20px;
+
+}
