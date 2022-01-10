@@ -16,14 +16,17 @@ function addToCategory(req, res) {
 function createCategory(req, res) {
     console.log('category created');
     Category.create(req.body, function (err, category) {
-        res.redirect('/category/new');
+        res.redirect('/category');
     });
 }
 
 function newCategory(req, res) {
     Category.find({}, function (err, categs) {
-        res.render('category/new', {
+        res.render('category/index', {
             title: 'Add Category',
+            Users,
+            user: req.user,
+            name: req.query.name,
             categs
         });
     })

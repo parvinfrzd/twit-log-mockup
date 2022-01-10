@@ -6,9 +6,6 @@ const categorySchema = new Schema({
         type: String,
         required: true,
     },
-    trend: {
-        type: Boolean,
-    },
     tweet: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Tweet',
