@@ -33,7 +33,8 @@ const tweetSchema = new Schema({
         enum: ['joy', 'sadness', 'disgust', 'fear', 'anger', 'neutral'],
         default: 'neutral'
     },
-    reviews: [reviewSchema]
+    reviews: [reviewSchema],
+    category: [{ type: Schema.Types.ObjectId, ref: 'Category' }],
 },
     {
         timestamps: true
