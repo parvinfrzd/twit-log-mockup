@@ -4,11 +4,7 @@
             <tr>
                 <th scope="col"></th>
                 <th scope="col">Text</th>
-                <th scope="col">Creater At</th>
-                <th scope="col">Author</th>
-                <th scope="col">Bio</th>
                 <th scope="col">Hashtag</th>
-                <th scope="col">Emotion</th>
             </tr>
         </thead>
         <tbody>
@@ -23,19 +19,7 @@
                         <%= t.tweet %>
                     </td>
                     <td scope="row">
-                        <%= t.createdAt %>
-                    </td>
-                    <td scope="row">
-                        <%= t.author %>
-                    </td>
-                    <td scope="row">
-                        <%= t.bio%>
-                    </td>
-                    <td scope="row">
                         <%= t.hashtag%>
-                    </td>
-                    <td scope="row">
-                        <%= t.emotion%>
                     </td>
                     <td scope="row"><a href="/tweets/<%= t._id %>" class="btn btn-info">Details</a></td>
                 </tr>

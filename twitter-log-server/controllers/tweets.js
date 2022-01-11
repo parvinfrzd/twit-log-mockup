@@ -1,5 +1,6 @@
 var Tweets = require('../models/tweet');
 var Users = require('../models/user');
+var Category = require('../models/category');
 
 function addTweet(req, res) {
     res.render('tweets/new', {
@@ -26,13 +27,19 @@ function show(req, res) {
     Tweets.findById(req.params.id)
         .populate('tweets').exec(function (err, tweet) {
             console.log(tweet);
-            res.render('tweets/show', {
-                title: 'Tweet Detail',
-                tweet,
-                Users,
-                user: req.user,
-                name: req.query.name,
-            });
+            Category.find({ _id: { $nin: tweet.category } })
+                .exec(function (err, category) {
+                    console.log('categories are: ', tweet.category);
+                    res.render('tweets/show', {
+                        title: 'Tweet Detail',
+                        tweet,
+                        category,
+                        Users,
+                        user: req.user,
+                        name: req.query.name,
+                    });
+                });
+
         });
 }
 

@@ -24,8 +24,22 @@
         <div>
             <%= tweet.emotion %>
         </div>
+        <div>Category:</div>
+        <ul>
+            <%- tweet.category.map(c=>
+                `<li>${c.name} <small></li>`
+                ).join('') %>
+        </ul>
     </section><br><br>
-
+    <form id="add-to-category" action="/tweets/<%=tweet._id%>/category" method="POST">
+        <select name="categoryId">
+            <%- category.map(c=>
+                `<option value="${c._id}">${c.name}</option>`
+                ).join('') %>
+        </select>
+        <button type="submit" class="btn btn-info">Add to Categories</button>
+    </form>
+    </section>
     <a href="/tweets/<%= tweet.id %>/edit" class="btn btn-info">Edit Tweet</a><br><br><br><br>
 
 
