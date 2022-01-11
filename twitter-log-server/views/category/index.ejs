@@ -1,20 +1,19 @@
 <%- include('../partials/header') %>
-
-    <p>All Gategories
-    <div>
-        <% categs.forEach(function(categ) { %>
-            <li>
-                <%= categ.name %>
-            </li>
-            <% }) %>
-    </div>
-    </p>
     <form id="add-ticket" action="/category" method="POST">
         <label>Label:</label>
-        <input name="name" type="text" required>
+        <input name="name" type="text" class="form-control" required>
         <br>
 
-        <input type="submit" value="Add Category">
+        <input type="submit" value="Add Category" class="btn btn-primary">
     </form>
+    <br><br><br>
+    <div class="container-fluid">
+        <% categs.forEach(function(categ) { %>
+            <button type="button" class="btn btn-info column w-25 p-5">
+                <%= categ.name %>
+            </button>
+            <% }) %>
+    </div>
+
 
     <%- include('../partials/footer') %>

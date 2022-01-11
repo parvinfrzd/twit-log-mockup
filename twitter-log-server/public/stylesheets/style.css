@@ -43,3 +43,7 @@ p {
   gap: 10px 20px;
 
 }
+
+.container-fluid {
+  gap: 10px;
+}
