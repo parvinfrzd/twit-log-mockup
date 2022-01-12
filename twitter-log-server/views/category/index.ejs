@@ -9,9 +9,12 @@
     <br><br><br>
     <div class="container-fluid">
         <% categs.forEach(function(categ) { %>
-            <button type="button" class="btn btn-info column w-25 p-5">
+            <a href="/category/<%= categ._id %>" class="btn btn-info column w-25 p-5">
                 <%= categ.name %>
-            </button>
+            </a>
+            <!-- <button type="button" class="btn btn-info column w-25 p-5">
+                <%= categ.name %>
+            </button> -->
             <% }) %>
     </div>
 
