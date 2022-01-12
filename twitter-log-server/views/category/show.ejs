@@ -1,0 +1,30 @@
+<%- include('../partials/header') %>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Text</th>
+                <th scope="col">Hashtag</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% tweet.forEach(function(t) { %>
+                <tr>
+                    <td scope="row">
+                        <form action="/tweets/<%= t.id %>?_method=DELETE" class="delete-form" method="POST">
+                            <button type="submit" class="btn btn-danger">X</button>
+                        </form>
+                    </td>
+                    <td scope="row">
+                        <%= t.tweet %>
+                    </td>
+                    <td scope="row">
+                        <%= t.hashtag%>
+                    </td>
+                    <td scope="row"><a href="/tweets/<%= t._id %>" class="btn btn-info">Details</a></td>
+                </tr>
+                <% }); %>
+        </tbody>
+    </table>
+
+    <%- include('../partials/footer') %>
