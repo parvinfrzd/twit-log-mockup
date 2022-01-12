@@ -2,7 +2,7 @@
     <section id="show-page" class="p-3 mb-2 bg-info text-dark">
         <div>Tweet: </div>
         <div>
-            <%= tweet.text %>
+            <%= tweet.tweet %>
         </div>
         <div>Time posted: </div>
         <div>
@@ -22,25 +22,24 @@
         </div>
         <div>Emotion: </div>
         <div>
-            <%= tweet.emotion %>
+            <%= tweet.emotions %>
         </div>
         <div>Category:</div>
         <ul>
-            <%- tweet.category.map(c=>
-                `<li>${c.name} <small></li>`
-                ).join('') %>
+            <%- tweet.category.map(c=> `<li>${c.name} </li>`).join('') %>
         </ul>
     </section><br><br>
     <form id="add-to-category" action="/tweets/<%=tweet._id%>/category" method="POST">
         <select name="categoryId">
-            <%- category.map(c=>
+            <%- categ.map(c=>
                 `<option value="${c._id}">${c.name}</option>`
                 ).join('') %>
         </select>
         <button type="submit" class="btn btn-info">Add to Categories</button>
     </form>
+    <a href="/tweets/<%= tweet.id %>/edit" class="btn btn-info">Edit Tweet</a>
     </section>
-    <a href="/tweets/<%= tweet.id %>/edit" class="btn btn-info">Edit Tweet</a><br><br><br><br>
+    <br><br><br><br>
 
 
     <% if (tweet.reviews.length) { %>
