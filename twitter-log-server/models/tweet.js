@@ -34,7 +34,7 @@ const tweetSchema = new Schema({
         default: 'neutral'
     },
     reviews: [reviewSchema],
-    category: [{ type: Schema.Types.ObjectId, ref: 'Category' }],
+    category: [{ type: Schema.Types.ObjectId, ref: 'Categories' }],
 },
     {
         timestamps: true

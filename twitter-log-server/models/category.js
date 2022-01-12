@@ -6,10 +6,10 @@ const categorySchema = new Schema({
         type: String,
         required: true,
     },
-    tweet: {
+    tweet: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Tweet',
-    }
+        ref: 'Tweets',
+    }]
 }, {
     timestamps: true
 });
