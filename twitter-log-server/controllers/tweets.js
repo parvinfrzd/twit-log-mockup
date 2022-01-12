@@ -25,15 +25,13 @@ function showTweet(req, res) {
 
 function show(req, res) {
     Tweets.findById(req.params.id)
-        .populate('tweets').exec(function (err, tweet) {
-            console.log(tweet);
+        .populate('category').exec(function (err, tweet) {
             Category.find({ _id: { $nin: tweet.category } })
-                .exec(function (err, category) {
-                    console.log('categories are: ', tweet.category);
+                .exec(function (err, categ) {
                     res.render('tweets/show', {
                         title: 'Tweet Detail',
                         tweet,
-                        category,
+                        categ,
                         Users,
                         user: req.user,
                         name: req.query.name,
