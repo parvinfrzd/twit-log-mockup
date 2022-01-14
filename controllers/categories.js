@@ -5,13 +5,22 @@ const Users = require('../models/user');
 
 function addToCategory(req, res) {
     Tweet.findById(req.params.id, function (err, tweet) {
-        console.log("category added: ", req.body.categoryId)
+        // console.log("category added: ", req.body.categoryId)
         tweet.category.push(req.body.categoryId);
         tweet.save(function (err) {
             console.log(err);
             res.redirect(`/tweets/${tweet._id}`);
         });
+
+        Category.findById(req.body.categoryId, function (err, category) {
+            category.tweet.push(tweet);
+            category.save(function (err) {
+                console.log('category is: ', category);
+            });
+        });
     });
+
+
 }
 
 function createCategory(req, res) {
@@ -48,12 +57,12 @@ function index(req, res) {
 function showTweets(req, res) {
     Category.findById(req.params.id)
         .populate('tweet').exec(function (err, category) {
-            Tweet.find({ _id: { $nin: category.tweet } })
-                .exec(function (err, tweet) {
+            Tweet.find({ _id: { $in: category.tweet } })
+                .exec(function (err, twee) {
+                    console.log(twee);
                     res.render('category/show', {
                         title: 'Tweet Detail',
-                        tweet,
-                        category,
+                        twee,
                         Users,
                         user: req.user,
                         name: req.query.name,
