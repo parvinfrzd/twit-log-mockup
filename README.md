@@ -14,12 +14,12 @@
 
 ## Table of Content: 
 
-1. [Getting Started](#example)
-2. [Getting Started in Dev Style](#example2)
-3. [Wireframe Description](#third-example)
-4. [Gallery](#third-example)
-5. [Technologies](#fourth-examplehttpwwwfourthexamplecom)
-6. [Future Updates](#fourth-examplehttpwwwfourthexamplecom)
+1. [Getting Started](##getting-started)
+2. [Getting Started in Dev Style](#getting-started-in-dev-style)
+3. [Wireframe Description](#wireframe-updates)
+4. [Gallery](#gallery)
+5. [Technologies](#technologies)
+6. [Future Updates](#future-updates)
 ##  Getting Started:
 #### To start with your first log, click on this [link](https://tweet-log-pf.herokuapp.com). 
 
@@ -52,7 +52,7 @@
 <br> 
 
 
-## Screenshots: 
+## Gallery: 
 
 ## Technologies: 
 
