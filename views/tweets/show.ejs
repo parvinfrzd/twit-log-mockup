@@ -1,94 +1,126 @@
 <%- include('../partials/header') %>
-    <section id="show-page" class="p-3 mb-2 bg-info text-dark">
-        <div>Tweet: </div>
-        <div>
-            <%= tweet.tweet %>
-        </div>
-        <div>Time posted: </div>
-        <div>
-            <%= tweet.createdAt %>
-        </div>
-        <div>Username: </div>
-        <div>
-            <%= tweet.author %>
-        </div>
-        <div>User Bio: </div>
-        <div>
-            <%= tweet.bio %>
-        </div>
-        <div>Hashtag: </div>
-        <div>
-            <%= tweet.hashtag %>
-        </div>
-        <div>Emotion: </div>
-        <div>
-            <%= tweet.emotions %>
-        </div>
-        <div>Category:</div>
-        <ul>
-            <%- tweet.category.map(c=> `<li>${c.name} </li>`).join('') %>
-        </ul>
-    </section><br><br>
-    <form id="add-to-category" action="/tweets/<%=tweet._id%>/category" method="POST">
-        <select name="categoryId">
-            <%- categ.map(c=>
-                `<option value="${c._id}">${c.name}</option>`
-                ).join('') %>
-        </select>
-        <button type="submit" class="btn btn-info">Add to Categories</button>
-    </form>
-    <a href="/tweets/<%= tweet.id %>/edit" class="btn btn-info">Edit Tweet</a>
-    </section>
-    <br><br><br><br>
 
+    <div class="d-grid  gap-4">
+        <div class="d-grid  gap-4 bg-light p-5 m-20 rounded-3">
+            <div class="flex-column bg-info text-light rounded-3">
+                <div class="p-2">
+                    <p class=" lead font-weight-bold">Time</p>
+                    <p class="font-weight-normal">
+                        <%= tweet.createdAt %>
+                    </p>
+                </div>
+                <div class="p-5">
+                    <p class=" lead font-weight-bold">Tweet</p>
+                    <p class="font-weight-normal">
+                        <%= tweet.tweet %>
+                    </p>
+                </div>
+                <div class="p-2">
+                    <p class=" lead font-weight-bold">Hashtag</p>
+                    <p class="font-weight-normal">
+                        <%= tweet.hashtag %>
+                    </p>
+                </div>
 
-    <% if (tweet.reviews.length) { %>
-        <table>
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Review</th>
-                    <th>Intensity</th>
-                </tr>
-            </thead>
-            <tbody>
+            </div>
+
+            <div class="flex-column bg-info text-light rounded-3">
+                <div class="p-2">
+                    <p class=" lead font-weight-bold">Username</p>
+                    <p class="font-weight-normal">
+                        <%= tweet.author %>
+                    </p>
+                </div>
+                <div class="p-2">
+                    <p class=" lead font-weight-bold">User Bio</p>
+                    <p class="font-weight-normal">
+                        <%= tweet.bio %>
+                    </p>
+                </div>
+                <div class="p-2">
+                    <p class=" lead font-weight-bold">Emotion</p>
+                    <p class="font-weight-normal">
+                        <%= tweet.emotion %>
+                    </p>
+                </div>
+            </div>
+            <div class="flex-row bg-info text-light rounded-3">
+                <div class="p-2">
+                    <p class=" lead font-weight-bold">Category</p>
+                    <p class="font-weight-normal">
+                    <ul class="list-group ">
+                        <%- tweet.category.map(c=> `<li class="list-group-item bg-transparent text-light">${c.name}
+                            </li>
+                            `).join('') %>
+                    </ul>
+                    </p>
+                </div>
+            </div>
+            <form id="add-to-category" class="flex-row  text-light rounded-3" action="/tweets/<%=tweet._id%>/category"
+                method="POST">
+                <select class="form-select" name="categoryId">
+                    <%- categ.map(c=>
+                        `<option value="${c._id}">${c.name}</option>`
+                        ).join('') %>
+                </select>
+                <button type="submit" class="btn btn-info text-light">Add to Categories</button>
+            </form>
+            <a class="flex-row btn btn-info text-light rounded-3" href="/tweets/<%= tweet.id %>/edit">EditTweet</a>
+        </div>
+        <br><br>
+        <div class="d-grid  gap-5 bg-light p-5 m-20 rounded-3">
+            <h2>Comments</h2>
+            <% if (tweet.reviews.length) { %>
                 <% tweet.reviews.forEach(function(r) { %>
-                    <tr>
-                        <td>
+                    <div class="d-flex">
+                        <button type="button" class="btn btn-light mr-auto p-2">
                             <%= r.content %>
-                        </td>
-                        <td>
-                            <%= r.intensity %>
-                        </td>
-                    </tr>
+                        </button>
+                        <% for(let i=0; i < r.intensity; i++) {%>
+                            <div class="flex-wrap flex-row  justify-content-between">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                    class="bi bi-star" viewBox="0 0 16 16">
+                                    <path
+                                        d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" />
+                                </svg>
+                            </div>
+                            <% }%>
+
+                    </div>
                     <% }); %>
-            </tbody>
-        </table>
-        <% } else { %>
-            <h5>No Comments Yet</h5>
-            <% } %><br><br><br><br>
 
 
-                <h2>Comments</h2>
-                <form id="add-review-form" method="POST" action="/tweets/<%= tweet._id %>/reviews"
-                    class="p-3 mb-2 bg-light text-dark">
-                    <label>Comment:</label>
-                    <textarea name="content" class="form-control"></textarea><br>
-                    <label>Intensity:</label>
-                    <select name="intensity" multiple class="form-control">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                    </select><br><br>
-                    <input type="submit" value="Add Review" class="btn btn-info">
-                </form>
+
+                        <% } else { %>
+                            <h5>No Comments Yet</h5>
+                            <% } %><br><br><br><br>
+        </div>
+        <div class="d-grid  gap-4 bg-light p-5 m-20 rounded-3">
+            <h2>Add a Comment</h2>
+            <form id="add-review-form" method="POST" action="/tweets/<%= tweet._id %>/reviews"
+                class="p-3 mb-2 bg-light text-light">
+                <label>Comment:</label>
+                <textarea name="content" class="form-control"></textarea><br>
+                <label>Intensity:</label>
+                <select name="intensity" multiple class="form-control">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select><br><br>
+                <input type="submit" value="Add Review" class="btn btn-info">
+            </form>
+
+        </div>
+    </div>
 
 
-                <%- include('../partials/footer') %>
+
+
+    <%- include('../partials/footer') %>

@@ -7,10 +7,13 @@
         <input type="submit" value="Add Category" class="btn btn-primary">
     </form>
     <br><br><br>
-    <div class="container-fluid">
+    <div class="container d-flex justify-content-center">
         <% categs.forEach(function(categ) { %>
             <a href="/category/<%= categ._id %>" class="btn btn-info column w-25 p-5">
                 <%= categ.name %>
+                    <%if (categ.tweet.length> 0 ) { %>
+                        <%= categ.tweet.length %>
+                            <% } %>
             </a>
             <!-- <button type="button" class="btn btn-info column w-25 p-5">
                 <%= categ.name %>

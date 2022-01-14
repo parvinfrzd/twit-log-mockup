@@ -1,10 +1,20 @@
 body {
+  height: 100%;
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
+}
+
+main {
+  margin-top: 50px;
 }
 
 a {
   color: #00B7FF;
+}
+
+h1{
+  margin-bottom: 50px;
 }
 
 .selector-for-some-widget {
@@ -33,14 +43,14 @@ p {
 }
 
 .container {
-  /* height: 50%; */
+  margin-top: 50px;
   width: auto;
   height: auto;
   flex-wrap: wrap ;
   justify-content: center;
   align-items: baseline;
   align-content: center;
-  gap: 10px 20px;
+  gap: 20px;
 
 }
 

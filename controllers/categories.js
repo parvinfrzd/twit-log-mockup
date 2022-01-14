@@ -33,7 +33,7 @@ function createCategory(req, res) {
 function newCategory(req, res) {
     Category.find({}, function (err, categs) {
         res.render('category/index', {
-            title: 'Add Category',
+            title: 'Category',
             Users,
             user: req.user,
             name: req.query.name,

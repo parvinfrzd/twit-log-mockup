@@ -1,13 +1,11 @@
 <%- include('../partials/header') %>
 
-    <p>
-        <%= title %>
-    </p>
+
     <form action="/search" method="GET">
         <label>Search any hastag, starting with #</label>
         <input type="text" class="form-control" id="fname" name="hashtag"><br><br>
         <label>How many tweets?</label>
         <input type="number" class="form-control" name="count" min="0"><br><br>
-        <button class="btn btn-primary" type="submit">SEARCH</button>
+        <button class="btn btn-primary" type="submit">Search</button>
     </form>
     <%- include('../partials/footer') %>
