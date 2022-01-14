@@ -14,9 +14,9 @@
 
 ## Table of Content: 
 
-1. [Getting Started](##getting-started)
+1. [Getting Started](#getting-started)
 2. [Getting Started in Dev Style](#getting-started-in-dev-style)
-3. [Wireframe Description](#wireframe-updates)
+3. [Wireframe Description](#wireframe-description)
 4. [Gallery](#gallery)
 5. [Technologies](#technologies)
 6. [Future Updates](#future-updates)
@@ -53,7 +53,13 @@
 
 
 ## Gallery: 
-
+![alt text](https://github.com/parvinfrzd/twit-log-mockup/blob/master/public/images/1.png?raw=true)
+![alt text](https://github.com/parvinfrzd/twit-log-mockup/blob/master/public/images/2.png?raw=true)
+![alt text](https://github.com/parvinfrzd/twit-log-mockup/blob/master/public/images/3.png?raw=true)
+![alt text](https://github.com/parvinfrzd/twit-log-mockup/blob/master/public/images/4.png?raw=true)
+![alt text](https://github.com/parvinfrzd/twit-log-mockup/blob/master/public/images/5.png?raw=true)
+![alt text](https://github.com/parvinfrzd/twit-log-mockup/blob/master/public/images/6.png?raw=true)
+![alt text](https://github.com/parvinfrzd/twit-log-mockup/blob/master/public/images/7.png?raw=true)
 ## Technologies: 
 
 <a href="https://cdnlogo.com/logo/nodejs_42584.html"><img src="https://cdn.cdnlogo.com/logos/n/22/nodejs.svg" width="50"></a>
