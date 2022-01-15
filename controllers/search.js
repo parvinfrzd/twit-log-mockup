@@ -44,7 +44,7 @@ let result = [];
 async function searchTrends(req, res) {
     const _id = req.query.woeid;
     if (_id) {
-        await client.get('trends/place', { id: 1 }, function (err, data, response) {
+        await client.get('trends/place', { id: _id }, function (err, data, response) {
             result = data[0].trends;
             res.redirect('/trends');
         });
