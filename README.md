@@ -26,7 +26,7 @@
 <br>
 
 ## Getting Started in Dev Style: 
-#### simply fork this open source application from the girhub repository, and develope your way through API, CRUD and full-stack application. 
+#### simply fork this open source application from the girhub repository, and develop your way through API, CRUD and full-stack application. 
 <br> 
 
     1. cd twit-log-mockup 
@@ -36,19 +36,19 @@
 <br> 
 
 ## Wireframe Description: 
-#### The wireframe is a simple header navigation bar design. As the user enters the website, he/she will be navigated to the About page. The login to the application is through the user's account for more simplicity and security. 
+#### The wireframe is a simple header navigation bar design. As the user enters the website, he/she will be navigated to the About page. The login to the application is through the user's Google account for more simplicity and security. 
 <br> 
 
-#### The user is able to search unlimited number of recent hashtags and trends on Twitter. If user doesn't feel creative at that moment, they can search trends based on 10 top world locations, and get ideas. 
+#### The user is able to search unlimited number of recent hashtags and trends on Twitter. If the user doesn't feel creative at that moment, they can search trends based on 10 top world locations, and get ideas. 
 <br>
 
 #### After the search is over, the user will be navigated to the twitter log page, where all tweets are listed. 
 <br>
 
-#### User is able to add any tweet in any category. Commenting, and editing the tweet itself are some of the built in functions in this application. 
+#### The user is able to add any tweet in any category. Commenting, and editing the tweet itself are some of the built in functions in this application. 
 <br>
 
-#### There are two ways to view tweets, by category, and to view all history of tweets. User is able to add more category by submitting a form in the category page. 
+#### There are two ways to view tweets, by category, and to view all history of tweets. The user is able to add more category by submitting a form in the category page. 
 <br> 
 
 
@@ -74,8 +74,8 @@
 
 ## Future Updates: 
 
-1. Add auotmated category builder 
+1. Add auotmation in creation of categories 
 2. Create more user friendly UX 
 3. Create API to IBM/Google/Amazon NLP services to analyise the incoming data from Twitter 
 4. Build data visualizer for tweets 
-5. Build a more generic API  to Twitter to make the experience more personalised
+5. Build a more generic API to Twitter to make the experience more personalised
